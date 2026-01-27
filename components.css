@@ -15,8 +15,8 @@
 }
 
 /*LOADER*/
-.cube-wrapper {
-    perspective: 800px;
+.cube-loader {
+    perspective: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,51 +38,6 @@
     border: 2px solid #22c55e;
     background: rgba(34, 197, 94, 0.05);
     box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
-}
-
-/* Positioning faces in 3D space */
-.front {
-    transform: translateZ(30px);
-}
-
-.back {
-    transform: rotateY(180deg) translateZ(30px);
-}
-
-.right {
-    transform: rotateY(90deg) translateZ(30px);
-}
-
-.left {
-    transform: rotateY(-90deg) translateZ(30px);
-}
-
-.top {
-    transform: rotateX(90deg) translateZ(30px);
-}
-
-.bottom {
-    transform: rotateX(-90deg) translateZ(30px);
-}
-
-@keyframes rotateCube {
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-
-    100% {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
-
-@keyframes pulseText {
-    0%, 100% {
-        opacity: 0.4;
-    }
-
-    50% {
-        opacity: 1;
-    }
 }
 
 /* 1. The Building Effect (Faces pulse/grow at different times) */

@@ -287,6 +287,40 @@ label {
     background: linear-gradient(90deg, transparent, #e2e8f0 20%, #16a34a 50%, #e2e8f0 80%, transparent);
 }
 
+/* Standard Desktop */
+.gs-section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #1a1a1a 0%, #1a1a1a 35%, #16a34a 35%, #16a34a 65%, #1a1a1a 65%, #1a1a1a 100% );
+    margin: 0 !important;
+    position: relative;
+    z-index: 20;
+}
+
+/* Mobile Full-Width & Gap Fix */
+@media (max-width: 1024px) {
+    .gs-section-divider {
+        /* Force the line to be exactly the width of the phone screen */
+        width: 100vw !important;
+        /* Pull the line to the very left edge of the screen */
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+        display: block;
+        height: 1px;
+    }
+
+    #map-section {
+        /* This pulls the section up 2px to close the "leak" gap */
+        margin-top: -2px !important;
+        position: relative;
+        z-index: 10;
+        background-color: #ffffff !important;
+    }
+}
+
 /* Typography */
 .gs-subheading {
     color: #16a34a;
@@ -451,3 +485,4 @@ label {
         height: auto !important; /* Ensures the button expands to show the shift */
     }
 }
+

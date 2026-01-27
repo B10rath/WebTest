@@ -84,6 +84,7 @@
     <Content Include="images\logo__1.png" />
     <Content Include="images\PortraitHeroImg.png" />
     <Content Include="images\startuplogo.png" />
+    <Content Include="index.html" />
     <Content Include="script.js" />
     <Content Include="services\services.css" />
     <Content Include="services\services.html" />

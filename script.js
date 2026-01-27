@@ -92,10 +92,17 @@ function initCubeLoader() {
 ================================ */
 
 function gsFloatToAbout() {
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth",
-    });
+    const aboutSection = document.getElementById('about');
+
+    if (aboutSection) {
+        // This is the most compatible way to handle absolute/relative layouts
+        const topPos = aboutSection.getBoundingClientRect().top + window.pageYOffset;
+
+        window.scrollTo({
+            top: topPos,
+            behavior: "smooth",
+        });
+    }
 }
 
 /* ===============================
