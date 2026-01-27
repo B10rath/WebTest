@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Careers - gseven Technologies</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="../images/logo__1.png">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">-->
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    <link rel="stylesheet" href="career.css" />
+    <link rel="stylesheet" href="../components.css" />
+</head>
+<body class="bg-black">
+
+    <div id="cube-loader" style="position: fixed; inset: 0; z-index: 9999; background: #050505; display: flex; align-items: center; justify-content: center; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden;">
+        <div style="perspective: 1000px;">
+            <div id="cube" class="building-cube" style="width: 40px; height: 40px; position: relative; transform-style: preserve-3d; animation: rotateCube 4s infinite linear;">
+
+                <div class="cube-face face-front"></div>
+                <div class="cube-face face-back"></div>
+                <div class="cube-face face-right"></div>
+                <div class="cube-face face-left"></div>
+                <div class="cube-face face-top"></div>
+                <div class="cube-face face-bottom"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <header id="gsMainHeader" class="gs-header-absolute">
+        <div class="gs-header-container">
+            <div class="gs-logo-box">
+                <img src="../images/g__1.png" alt="Logo" class="gs-header-logo">
+            </div>
+            <nav class="gs-desktop-nav">
+                <ul class="gs-nav-ul">
+                    <li><a href="../home.html" class="gs-nav-item">Home</a></li>
+                    <li><a href="../services/services.html" class="gs-nav-item">Services</a></li>
+                    <li><a href="career.html" class="gs-nav-item active">Careers</a></li>
+                    <li><a href="../contact/contact.html" class="gs-nav-item gs-cta">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <button id="menuBtn" class="gs-elite-hamburger" aria-label="Menu">
+        <div class="gs-burger-icon">
+            <span class="gs-line line-t"></span>
+            <span class="gs-line line-m"></span>
+            <span class="gs-line line-b"></span>
+        </div>
+    </button>
+
+    <div id="gsOverlay" class="gs-overlay-mask"></div>
+    <aside id="gsSideDrawer" class="gs-drawer-panel">
+        <div class="gs-drawer-header">
+            <span class="gs-drawer-title">MENU</span>
+            <button id="closeDrawer" class="gs-drawer-x">&times;</button>
+        </div>
+        <nav class="gs-drawer-links">
+            <a href="../home.html">Home</a>
+            <a href="../services/services.html">Services</a>
+            <a href="career.html">Careers</a>
+            <a href="../contact/contact.html">Contact</a>
+        </nav>
+    </aside>
+    
+    <section class="w-full bg-white mt-28 pt-24 pb-24 lg:mt-44 lg:pt-32 lg:pb-32 overflow-hidden gs-reveal-group gs-border-transition">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <h4 class="text-green-600 font-bold tracking-[0.3em] text-[10px] uppercase mb-4 gs-fade-up">
+                    Level Up
+                </h4>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-6 leading-[1.1] gs-fade-up-delayed">
+                    Step Into New Challenges,<br>
+                    <span class="text-green-600 block mt-2">Elevate Your Skills.</span>
+                </h3>
+                <p class="text-gray-500 text-base md:text-lg font-medium leading-relaxed gs-fade-up-more">
+                    Mastery is a journey, and every great professional grows through experience. Through our Internship and Bootcamp programmes, you’ll tackle real-world projects, receive guidance from mentors, and gain hands-on exposure — providing a direct pathway to our core team and opening doors to exciting opportunities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gs-join-section relative bg-[#f5f5f5] pt-24 pb-24 px-6 lg:pt-32 lg:pb-32 overflow-hidden ">
+        <div class="relative max-w-6xl mx-auto">
+
+            <div class="flex flex-col lg:flex-row items-start justify-start gap-12 lg:gap-32 lg:ml-[0.75cm]">
+
+                <div class="w-full lg:w-auto shrink-0">
+                    <span class="inline-block px-4 py-1.5 mb-8 text-[10px] font-black tracking-[0.4em] text-green-700 uppercase bg-green-50 rounded-full">
+                        Join Us
+                    </span>
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 tracking-tighter mb-8 leading-[0.95]">
+                        Ready to Join <br />
+                        <span class="text-green-600">Gseven?</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 leading-relaxed max-w-md font-medium">
+                        Share your details with us, and our team will reach out if your skills and experience align with our opportunities.
+                    </p>
+                </div>
+
+                <div class="w-full lg:w-auto mt-12 lg:mt-40">
+                    <button onclick="triggerEmail()" class="gs-text-action group flex items-center text-left">
+                        <div class="flex flex-col">
+                            <span class="text-xl md:text-2xl font-black text-gray-900 tracking-tighter transition-all duration-300 group-hover:text-green-600 uppercase">
+                                Apply <br /> Now
+                            </span>
+                            <div class="h-[2px] w-6 bg-green-600 mt-4 transition-all duration-500 group-hover:w-full"></div>
+                        </div>
+
+                        <div class="ml-6 w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 transition-all duration-500 group-hover:bg-green-600 group-hover:border-green-600 group-hover:text-white group-hover:translate-x-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-300 pt-10 pb-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8 mb-8">
+                <div class="flex flex-col space-y-4 lg:w-1/4 mt-6">
+                    <img src="../images/g__1.png" class="h-16 w-auto object-contain self-start footer-logo" alt="GSeven Logo">
+
+                    <!--<div class="gs-hashtag">
+                        <span class="text-[#facc15]">#</span>startupindia
+                    </div>-->
+
+                    <p class="text-gray-400 text-sm leading-relaxed mt-2 max-w-[240px]">
+                        Building reliable software solutions with precision, performance, and client trust at the core.
+                    </p>
+
+                    <a href="../contact/contact.html#map-section" class="gs-map-btn">
+                        <i class="fa-solid fa-location-arrow mr-2"></i>
+                        <span>Find us on Map</span>
+                    </a>
+                </div>
+
+                <div class="flex-1 bg-gray-900/40 backdrop-blur-md rounded-2xl p-6 border border-gray-800/50 flex flex-col md:flex-row justify-between gap-8 mt-6">
+
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Quick Links</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="../home.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Home</span></a></li>
+                            <li><a href="../services/services.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Services</span></a></li>
+                            <li><a href="career.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Careers</span></a></li>
+                            <li><a href="../contact/contact.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Contact</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col space-y-3 max-w-[250px]">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Reach Us</h3>
+                        <div class="space-y-3 text-sm">
+                            <p class="footer-contact-item flex items-center hover:text-white transition-colors">
+                                <i class="fa-solid fa-phone text-green-500 w-6"></i> (+91) 87142-00152
+                            </p>
+                            <p class="footer-contact-item flex items-center hover:text-white transition-colors">
+                                <i class="fa-solid fa-envelope text-green-500 w-6"></i> gseventechnologies@gmail.com
+                            </p>
+                            <p class="footer-contact-item flex items-start leading-relaxed hover:text-white transition-colors">
+                                <i class="fa-solid fa-location-dot text-green-500 w-6 mt-1"></i>
+                                Second floor, Colombo castle,<br />
+                                Koodalmanikyam Temple Rd, <br />
+                                Irinjalakuda, Kerala 680121
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Social</h3>
+                        <div class="flex flex-col space-y-2 text-sm">
+                            <a href="https://www.linkedin.com/company/gseventechnologies/posts/?feedView=all" class="footer-link-social linkedin">
+                                <i class="fab fa-linkedin-in w-5"></i> LinkedIn
+                            </a>
+                            <a href="https://www.facebook.com/share/1D6r5CUx4E/" class="footer-link-social facebook">
+                                <i class="fab fa-facebook-f w-5"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/gseven.technologies?igsh=b25tMnN6emF1Z29x" class="footer-link-social instagram">
+                                <i class="fab fa-instagram w-5"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="border-t border-gray-900/50 pt-4 flex flex-col items-center">
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.2em]">© GSeven Technologies 2026</p>
+                <div class="footer-bottom-line"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" class="scroll-btn">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!--JAVASCRIPT-->
+
+    <script src="../script.js" defer></script>
+
+    <script>
+        document.querySelectorAll('.gs-tech-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.05)';
+                card.style.borderColor = '#16a34a';
+                card.querySelector('.icon-box').style.background = '#16a34a';
+                card.querySelector('svg').style.stroke = card.querySelector('svg').getAttribute('stroke') ? '#fff' : '';
+                card.querySelector('svg').style.fill = card.querySelector('svg').getAttribute('fill') !== 'none' ? '#fff' : 'none';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+                card.style.borderColor = '#eee';
+                card.querySelector('.icon-box').style.background = '#f0fdf4';
+                card.querySelector('svg').style.stroke = card.querySelector('svg').getAttribute('stroke') ? '#16a34a' : '';
+                card.querySelector('svg').style.fill = card.querySelector('svg').getAttribute('fill') !== 'none' ? '#16a34a' : 'none';
+            });
+        });
+    </script>
+
+    <script>
+        function triggerEmail() {
+            const mail = "gseventechnologies@gmail.com";
+            const sub = encodeURIComponent("Enquiry Regarding Opportunities");
+
+            // Opens a new Gmail compose window
+            const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${mail}&su=${sub}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,901 @@
+﻿:root {
+    --gs-primary: #22c55e; /* Green */
+    --gs-accent: #facc15; /* Yellow */
+    --gs-white: #ffffff;
+    --gs-black: #000000;
+    --glass-bg: rgba(5, 5, 5, 0.8);
+    --text-white: #ffffff;
+    --gs-bg-dark: rgba(5, 5, 5, 0.95);
+    --gs-primary-glow: rgba(34, 197, 94, 0.4);
+    --gs-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --gs-dark: #050505;
+    --gs-transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --gs-dark: #121212;
+    --gs-bezier: cubic-bezier(0.16, 1, 0.3, 1); /* Smooth, high-end motion */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--gs-black);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', sans-serif; /* Recommended clean font */
+    background: var(--gs-dark);
+}
+
+.gs-hero {
+    position: fixed; /* Necessary for 'Slide-Over' effect */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.gs-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("images/HeroImg.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation: gsZoomBg 15s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+.gs-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    z-index: 2;
+}
+
+.gs-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--gs-white);
+    max-width: 850px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.gs-hero-title {
+    font-size: clamp(3rem, 12vw, 6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.gs-hero-desc {
+    margin: 0 auto 40px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* ============================================================
+    SCROLL INDICATOR (Get Started)
+   ============================================================ */
+/* --- MINIMALIST GHOST TRIGGER --- */
+.gs-scroll-trigger {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    background: transparent; /* No box */
+    border: none;
+    transition: all 0.4s ease;
+}
+
+.gs-scroll-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.4em; /* Spaced out for premium look */
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    transition: all 0.5s ease;
+}
+
+/* The vertical line that animates */
+.gs-scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, #16a34a, transparent);
+    position: relative;
+    overflow: hidden;
+}
+
+/* The "painting" effect inside the line */
+.gs-scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: linePaint 2s infinite;
+}
+
+/* --- HOVER EFFECTS --- */
+
+.gs-scroll-trigger:hover .gs-scroll-text {
+    color: #16a34a; /* Turns Green */
+    letter-spacing: 0.6em; /* Expands slightly */
+    text-shadow: 0 0 15px rgba(22, 163, 74, 0.6);
+}
+
+.gs-scroll-trigger:hover .gs-scroll-line {
+    height: 80px; /* Line grows longer */
+    background: #16a34a;
+}
+
+/* --- ANIMATIONS --- */
+
+@keyframes linePaint {
+    0% {
+        top: -100%;
+    }
+
+    50% {
+        top: 100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+/* --- BASE STATE (WHITE) --- */
+.gs-scroll-text {
+    color: #ffffff !important;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    /* Deep black shadow to protect the white text visibility */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- THE STYLE: GLOWING NEON GREEN --- */
+.gs-scroll-trigger:hover .gs-scroll-text {
+    /* Bright Neon Green */
+    color: #39FF14 !important;
+    /* Layered Glow Effect: 
+       Inner glow (white/light green) + Outer neon blur + Deep black base for sharpness */
+    text-shadow: 0 0 5px #fff, 0 0 10px #39FF14, 0 0 20px #39FF14, 2px 2px 5px rgba(0, 0, 0, 1);
+    letter-spacing: 0.5em; /* Stylish expansion */
+}
+
+/* --- THE GLOWING LINE --- */
+.gs-scroll-line {
+    background: rgba(255, 255, 255, 0.2);
+    width: 2px;
+    height: 50px;
+    transition: all 0.4s ease;
+}
+
+.gs-scroll-trigger:hover .gs-scroll-line {
+    /* Line becomes a glowing neon tube */
+    background: #39FF14;
+    box-shadow: 0 0 15px #39FF14, 0 0 30px rgba(57, 255, 20, 0.5);
+    height: 75px;
+}
+/* Idle Floating Animation for the whole element */
+.gs-scroll-trigger {
+    animation: gentleFloat 3s infinite ease-in-out;
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+
+/* ============================================================
+    MOBILE OPTIMIZATION (Media Queries)
+   ============================================================ */
+@media (max-width: 768px) {
+    .gs-hero-bg {
+        /* Kill the desktop animation */
+        animation: none !important;
+        transform: scale(1) !important;
+        /* 1. CHANGE THE IMAGE HERE */
+        /* Ensure this filename exists in your images folder! */
+        background-image: url("./images/PortraitHeroImg.png") !important;
+        /* 2. ADJUST FOCAL POINT */
+        /* This centers the image specifically for vertical phone screens */
+        background-position: center center;
+    }
+
+    .gs-hero-content {
+        padding: 0 20px;
+    }
+
+    .gs-hero-title {
+        letter-spacing: -1px;
+    }
+
+    .gs-header {
+        padding: 1rem;
+    }
+}
+
+/* ============================================================
+    ANIMATIONS
+   ============================================================ */
+@keyframes gsZoomBg {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes gsLinePulse {
+    0%, 100% {
+        height: 30px;
+        opacity: 0.4;
+    }
+
+    50% {
+        height: 60px;
+        opacity: 1;
+    }
+}
+
+
+/* 1. RESET THE WRAPPER */
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    width: 100%;
+}
+
+/* 2. THE HERO (LOCKED TO THE BACKGROUND) */
+.gs-hero {
+    position: fixed; /* Takes it out of the layout flow completely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1; /* Background layer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+/* 3. THE SLIDING MAIN LAYOUT */
+.gs-main-layout {
+    position: relative;
+    z-index: 10; /* Sits over the Hero */
+    /* This is the secret: It starts 100vh down, 
+       but because Hero is 'fixed', there is NO 
+       extra space between them.
+    */
+    margin-top: 100vh;
+    background: #000; /* Must be solid to cover the Hero */
+    width: 100%;
+    min-height: 100vh;
+    /* Elegant shadow for the curtain effect */
+    box-shadow: 0 -30px 60px rgba(0,0,0,1);
+}
+
+/* --- CONTENT STYLING & HOVER --- */
+.gs-main-title {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+.gs-accent {
+    color: #22c55e;
+    transition: 0.3s ease;
+}
+
+.gs-hero-desc {
+    color: rgba(255, 255, 255, 0.4); /* Dimmed */
+    font-size: 15px;
+    max-width: 480px;
+    line-height: 1.6;
+    text-align: center;
+    /* Space between desc and button */
+    margin-top: 40px;
+    transition: all 0.4s ease;
+}
+
+/* HOVER EFFECT: Brighten Desc and Glow Accent when H2 is hovered */
+.gs-main-title:hover ~ .gs-hero-desc {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.gs-main-title:hover .gs-accent {
+    text-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+/* --- LOCATION ROW --- */
+.gs-location-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+/* --- LAYOUT FIX (SLIDING EFFECT) --- */
+.gs-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* --- LAYOUT --- */
+.gs-hero-content {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px;
+}
+
+/* --- TYPOGRAPHY --- */
+.gs-main-title {
+    /* Professional size: large enough to be a title, small enough to be elegant */
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* Increased spacing makes smaller text look more "Premium" */
+    letter-spacing: 3px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.gs-accent {
+    color: #22c55e;
+    /* A slightly lighter weight for the accent word adds class */
+    font-weight: 400;
+}
+
+/* Integrated Location Line */
+.gs-location-line {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.loc-dot {
+    width: 4px;
+    height: 4px;
+    background: #22c55e;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.gs-hero-desc {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+    max-width: 520px;
+    line-height: 1.8;
+    margin: 0 auto;
+    font-weight: 300; /* Light weight for a modern tech feel */
+}
+
+/* Subtlest possible hover just to show it's interactive */
+.gs-interactive-zone:hover .gs-hero-desc {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.4s ease;
+}
+
+/* Subtly highlights the location and pulses the green dots when the zone is hovered */
+.gs-interactive-zone:hover .gs-location-line {
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.4s ease;
+}
+
+.gs-interactive-zone:hover .loc-dot {
+    transform: scale(1.4);
+    background: #22c55e;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+    transition: all 0.4s ease;
+}
+
+/* --- SPACING & SCROLL --- */
+.gs-scroll-trigger {
+    margin-top: 60px; /* Space between desc and button */
+}
+
+.gs-main-layout {
+    position: relative;
+    z-index: 20;
+    margin-top: 100vh;
+    background: #000;
+    min-height: 100vh;
+    box-shadow: 0 -20px 50px rgba(0,0,0,1);
+}
+
+/*dummy*/
+/* --- CONTENT STYLING --- */
+.gs-section {
+    padding: 120px 6%;
+    background: var(--gs-dark);
+    color: var(--gs-white);
+}
+
+.gs-bg-alt {
+    background: #0a0a0a; /* Slightly lighter black for section contrast */
+}
+
+.gs-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gs-subtitle {
+    color: var(--gs-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.gs-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 3rem;
+}
+
+/* Grids */
+.gs-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.gs-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Service Cards */
+.gs-service-card {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.gs-service-card:hover {
+    border-color: var(--gs-primary);
+    transform: translateY(-10px);
+}
+
+.gs-service-icon {
+    font-size: 1.5rem;
+    color: var(--gs-primary);
+    font-weight: 800;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.gs-stat-card h3 {
+    font-size: 3rem;
+    color: var(--gs-primary);
+}
+
+/* Responsive Grid */
+@media (max-width: 900px) {
+    .gs-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* This ensures the content is visible and layers ABOVE the fixed Hero */
+.gs-main-layout {
+    position: relative;
+    z-index: 10; /* Higher than Hero (usually z-index 1) */
+    background: var(--gs-dark); /* Ensure it has a background so it's not see-through */
+    margin-top: 100vh; /* This pushes the content down so it starts AFTER the Hero */
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.5); /* Adds a nice shadow as it slides over the Hero */
+}
+
+/* Ensure sections have high visibility */
+.gs-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    color: var(--gs-white) !important;
+}
+
+/*Dummy end*/
+
+/* --- ABOUT SECTION SPECIFIC STYLES --- */
+.gs-about-btn {
+    background-color: #000000; /* Black for high contrast */
+    color: #ffffff;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid #000000;
+}
+
+.gs-about-btn:hover {
+    background-color: transparent;
+    color: #16a34a; /* Green on hover */
+    border-color: #16a34a;
+    transform: translateY(-3px);
+}
+
+.text-black {
+    color: #000000 !important;
+}
+
+/*ABOUT*/
+
+/*HERITAGE*/
+
+/* --- COLORS --- */
+:root {
+    --gs-green: #16a34a;
+    --gs-black: #000000;
+}
+
+/* --- TEXT GLOW & GLITTER --- */
+.glow-text:hover {
+    text-shadow: 0 0 15px rgba(22, 163, 74, 0.4);
+    transition: all 0.3s ease;
+}
+
+.glitter-text span:hover {
+    background: linear-gradient(90deg, #16a34a, #000, #16a34a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* --- HOVER MOVE (Paragraphs) --- */
+.hover-move {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+    .hover-move:hover {
+        transform: translateX(8px);
+        color: var(--gs-black);
+    }
+
+/* --- GLITTER FRAME (The border behind the image) --- */
+.glitter-frame {
+    transition: all 0.5s ease;
+}
+
+.group:hover .glitter-frame {
+    border-color: var(--gs-black); /* Swaps green to black on hover */
+    box-shadow: 0 0 20px rgba(22, 163, 74, 0.3);
+}
+
+/* --- BADGE SHIMMER EFFECT --- */
+.badge-reveal {
+    overflow: hidden;
+    position: relative;
+}
+
+.badge-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient( to right, transparent, rgba(255, 255, 255, 0.3), transparent );
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+.group:hover .badge-shimmer {
+    left: 125%;
+}
+
+/* --- RESPONSIVE IMAGE CONTAINER --- */
+.perspective-1000 {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 500px; /* Prevents image from becoming huge on large tablets */
+    margin: 0 auto; /* Centers on mobile */
+}
+
+/* Adjusting the Green Frame for Mobile */
+@media (max-width: 768px) {
+    .glitter-frame {
+        width: calc(100% - 10px) !important;
+        height: calc(100% - 10px) !important;
+        bottom: -15px !important;
+        right: -15px !important;
+    }
+
+    /* Moving the Badge so it doesn't cover too much of the image on phones */
+    .badge-reveal {
+        bottom: -20px !important;
+        left: 0 !important;
+        padding: 1rem 1.5rem !important; /* Smaller padding on mobile */
+    }
+
+    .badge-reveal span.text-5xl {
+        font-size: 2.5rem !important; /* Smaller text for mobile screens */
+    }
+}
+
+/* --- IMAGE SCALING --- */
+.relative.overflow-hidden.rounded-2xl img {
+    display: block;
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover;
+}
+
+/* --- REVEAL ANIMATIONS (For JS Intersection Observer) --- */
+.reveal {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.reveal-left {
+    transform: translateX(-30px);
+}
+
+.reveal-right {
+    transform: translateX(30px);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.stagger-1 {
+    transition-delay: 0.2s;
+}
+
+.stagger-2 {
+    transition-delay: 0.4s;
+}
+
+.stagger-3 {
+    transition-delay: 0.6s;
+}
+
+.glitter-text:hover {
+    background: linear-gradient( to right, #000 20%, #16a34a 40%, #16a34a 60%, #000 80% );
+    background-size: 200% auto;
+    color: #000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glitter-swipe 1.5s linear infinite;
+}
+
+@keyframes glitter-swipe {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* story section*/
+.story-section {
+    background-color: #fcfcfc;
+}
+
+/* Styling for the vertical line */
+.story-section .border-l {
+    border-color: #f3f4f6; /* Very light gray */
+    transition: border-color 0.4s ease;
+}
+
+/* On hover of any item, make the line slightly darker */
+.story-section .relative:hover .border-l {
+    border-color: #e5e7eb;
+}
+
+/* Modern Text Transition */
+.story-section h4 {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.group:hover h4 {
+    transform: translateX(8px);
+}
+
+/* Image Hover Effect */
+.story-section img,
+.story-section .relative > [Image] {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-section div:hover img {
+    transform: scale(1.02) translateY(-5px);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 1024px) {
+    .story-section .grid {
+        gap: 4rem;
+    }
+
+    .story-section .order-first-mobile {
+        order: -1; /* Move diagram above text on mobile if preferred */
+    }
+}
+
+/* why choose section */
+.why-choose-section {
+    background-color: #fcfcfc;
+}
+
+/* --- MANIFESTO INTERACTION --- */
+.manifesto-text {
+    position: relative;
+    /* We maintain a subtle border that lights up on hover */
+    border-left: 3px solid #e5e7eb;
+    padding-left: 32px;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.manifesto-text:hover {
+    border-left: 3px solid #16a34a;
+    padding-left: 40px;
+}
+
+/* --- THE EXPLORE LINK --- */
+.link-text-hover {
+    position: relative;
+}
+
+.link-text-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #16a34a;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .link-text-hover::after {
+    transform: scaleX(1);
+}
+
+/* Arrow Hover Interaction */
+.arrow-circle {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .arrow-circle {
+    background-color: #000;
+    border-color: #000;
+    transform: translateX(10px) rotate(-45deg);
+}
+
+.group:hover .arrow-circle i {
+    color: #16a34a !important;
+}
+
+/* Network */
+/* Snappy Transition for the Card */
+.network-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease;
+}
+
+/* Grayscale logic for the logo */
+.logo-container img {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.network-card:hover .logo-container img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Inactive Link Styling */
+.network-link {
+    transition: color 0.3s ease;
+}
+
+/* Optional: Slight color change on card hover to show it's 'alive' 
+   even if the link is inactive */
+.network-card:hover .network-link {
+    color: #9ca3af; /* Slightly darker gray on hover */
+}
+
+.network-card:hover .network-link i {
+    transform: translateX(3px);
+    transition: transform 0.3s ease;
+}
+
+.network-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Ensure the browser uses the GPU for the move effect */
+    will-change: transform;
+}
+
+.network-logo {
+    object-fit: contain;
+}
+
+.no-underline {
+    text-decoration: none !important;
+}
+

@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact - gseven Technologies</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="../images/logo__1.png">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">-->
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="../components.css" />
+</head>
+<body class="bg-black">
+
+    <div id="cube-loader" style="position: fixed; inset: 0; z-index: 9999; background: #050505; display: flex; align-items: center; justify-content: center; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden;">
+        <div style="perspective: 1000px;">
+            <div id="cube" class="building-cube" style="width: 40px; height: 40px; position: relative; transform-style: preserve-3d; animation: rotateCube 4s infinite linear;">
+
+                <div class="cube-face face-front"></div>
+                <div class="cube-face face-back"></div>
+                <div class="cube-face face-right"></div>
+                <div class="cube-face face-left"></div>
+                <div class="cube-face face-top"></div>
+                <div class="cube-face face-bottom"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <header id="gsMainHeader" class="gs-header-absolute">
+        <div class="gs-header-container">
+            <div class="gs-logo-box">
+                <img src="../images/g__1.png" alt="Logo" class="gs-header-logo">
+            </div>
+            <nav class="gs-desktop-nav">
+                <ul class="gs-nav-ul">
+                    <li><a href="../home.html" class="gs-nav-item">Home</a></li>
+                    <li><a href="../services/services.html" class="gs-nav-item">Services</a></li>
+                    <li><a href="../career/career.html" class="gs-nav-item">Careers</a></li>
+                    <li><a href="contact.html" class="gs-nav-item gs-cta active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <button id="menuBtn" class="gs-elite-hamburger" aria-label="Menu">
+        <div class="gs-burger-icon">
+            <span class="gs-line line-t"></span>
+            <span class="gs-line line-m"></span>
+            <span class="gs-line line-b"></span>
+        </div>
+    </button>
+
+    <div id="gsOverlay" class="gs-overlay-mask"></div>
+    <aside id="gsSideDrawer" class="gs-drawer-panel">
+        <div class="gs-drawer-header">
+            <span class="gs-drawer-title">MENU</span>
+            <button id="closeDrawer" class="gs-drawer-x">&times;</button>
+        </div>
+        <nav class="gs-drawer-links">
+            <a href="../home.html">Home</a>
+            <a href="../services/services.html">Services</a>
+            <a href="../career/career.html">Careers</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </aside>
+
+    <section class="gs-contact-full-wrapper bg-[#ffffff] w-full">
+        <div class="py-24 px-6 max-w-7xl mx-auto">
+
+            <div class="mb-20 text-left">
+                <h3 class="text-xs font-bold uppercase tracking-[0.5em] text-[#16a34a] mb-4">Get In Touch</h3>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-6 text-[#1a1a1a]">
+                    Let's Start a <span class="text-[#16a34a]">Conversation.</span>
+                </h1>
+                <p class="text-gray-500 max-w-2xl leading-relaxed text-lg">
+                    Whether you have a specific project in mind or just want to explore how our technology can help your business grow, our team is ready to assist.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-4 space-y-12">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Our Office</h4>
+                        <p class="text-gray-700 leading-loose font-medium">
+                            gSeven Technologies,<br />
+                            Second floor, Colombo castle,<br />
+                            Koodalmanikyam Temple Rd, <br />
+                            Irinjalakuda, Kerala 680121
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Direct Connect</h4>
+                        <div class="space-y-4">
+                            <div class="cursor-pointer text-lg font-bold tracking-tight text-[#1a1a1a] hover:text-[#16a34a] transition-all duration-400 hover:tracking-[0.05em] ease-in-out">gseventechnologies@gmail.com</div>
+                            <div class="cursor-pointer text-lg font-bold tracking-tighter text-[#1a1a1a] hover:text-[#16a34a] transition-all duration-400 hover:tracking-normal ease-in-out">+91 87142-00152</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Follow Us</h4>
+                        <div class="flex gap-6">
+                            <a href="https://www.linkedin.com/company/gseventechnologies/posts/?feedView=all" class="text-gray-400 hover:text-[#0A66C2] transition-colors"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+                            <a href="https://www.facebook.com/share/1D6r5CUx4E/" class="text-gray-400 hover:text-[#1877F2] transition-colors"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                            <a href="https://www.instagram.com/gseven.technologies?igsh=b25tMnN6emF1Z29x" class="text-gray-400 hover:text-[#E4405F] transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                            <a href="https://wa.me/9400111203?text=Hello%20GSeven%20Technologies,%20I%20would%20like%20to%20inquire%20about%20your%20services." class="text-gray-400 hover:text-[#16a34a] transition-colors" target="_blank" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    var submitted = false;
+                    function handleFormSubmit() {
+                        if (submitted) {
+                            // This clears the form and stays on the page
+                            window.location.reload();
+                        }
+                    }
+                </script>
+
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="handleFormSubmit()"></iframe>
+
+                <div class="lg:col-span-8 gs-form-card">
+                    <form action="https://docs.google.com/forms/d/1s5I1Sh55uUXEmyoSgN0NQnb1vpI-vKsHLrbFjECQqFs/formResponse"
+                          method="POST"
+                          id="form"
+                          class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10"
+                          target="hidden_iframe"
+                          id="contactForm"
+                          onsubmit="submitted=true;" ">
+
+                        <div class="flex flex-col">
+                            <label class="gs-label">FULL NAME</label>
+                            <input type="text" name="entry.1297407905" placeholder="Your Name" class="gs-input">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label class="gs-label">EMAIL ADDRESS</label>
+                            <input type="email" name="entry.1750614551" placeholder="Email Address" class="gs-input">
+                        </div>
+
+                        <div class="flex flex-col md:col-span-2">
+                            <label class="gs-label">HOW CAN WE HELP YOU?</label>
+                            <textarea rows="4" name="entry.1933964396" placeholder="Tell us about your project or software needs..." class="gs-input resize-none"></textarea>
+                        </div>
+
+                        <div class="md:col-span-2 text-right">
+                            <button type="submit" class="gs-btn-submit" id="submit-btn">
+                                <span>Send Message</span>
+                            </button>
+
+                            <div id="result" class="text-xs font-bold uppercase tracking-widest mt-4 opacity-0 transition-opacity duration-300"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gs-section-divider"></div>
+
+    <section id="map-section" class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="mb-12">
+                <h3 class="gs-subheading">Our Location</h3>
+                <h2 class="gs-main-heading">Where You Can <span class="text-[#16a34a]">Find Us.</span></h2>
+            </div>
+
+            <div class="gs-map-wrapper group">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.940489158627!2d76.206413!3d10.346643700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7f7dbb1aa20b9%3A0x36e870d1e03b508e!2sgSeven%20Technologies!5e0!3m2!1sen!2sin!4v1768042182515!5m2!1sen!2sin"
+                        class="gs-map-iframe"
+                        allowfullscreen=""
+                        loading="lazy">
+                </iframe>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-300 pt-10 pb-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8 mb-8">
+                <div class="flex flex-col space-y-4 lg:w-1/4 mt-6">
+                    <img src="../images/g__1.png" class="h-16 w-auto object-contain self-start footer-logo" alt="GSeven Logo">
+
+                    <!--<div class="gs-hashtag">
+                        <span class="text-[#facc15]">#</span>startupindia
+                    </div>-->
+
+                    <p class="text-gray-400 text-sm leading-relaxed mt-2 max-w-[240px]">
+                        Building reliable software solutions with precision, performance, and client trust at the core.
+                    </p>
+
+                    <a href="#map-section" class="gs-map-btn">
+                        <i class="fa-solid fa-location-arrow mr-2"></i>
+                        <span>Find us on Map</span>
+                    </a>
+                </div>
+
+                <div class="flex-1 bg-gray-900/40 backdrop-blur-md rounded-2xl p-6 border border-gray-800/50 flex flex-col md:flex-row justify-between gap-8 mt-6">
+
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Quick Links</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="../home.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Home</span></a></li>
+                            <li><a href="../services/services.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Services</span></a></li>
+                            <li><a href="../career/career.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Careers</span></a></li>
+                            <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Contact</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col space-y-3 max-w-[250px]">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Reach Us</h3>
+                        <div class="space-y-3 text-sm">
+                            <p class="footer-contact-item flex items-center hover:text-white transition-colors">
+                                <i class="fa-solid fa-phone text-green-500 w-6"></i> (+91) 87142-00152
+                            </p>
+                            <p class="footer-contact-item flex items-center hover:text-white transition-colors">
+                                <i class="fa-solid fa-envelope text-green-500 w-6"></i> gseventechnologies@gmail.com
+                            </p>
+                            <p class="footer-contact-item flex items-start leading-relaxed hover:text-white transition-colors">
+                                <i class="fa-solid fa-location-dot text-green-500 w-6 mt-1"></i>
+                                Second floor, Colombo castle,<br />
+                                Koodalmanikyam Temple Rd, <br />
+                                Irinjalakuda, Kerala 680121
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Social</h3>
+                        <div class="flex flex-col space-y-2 text-sm">
+                            <a href="https://www.linkedin.com/company/gseventechnologies/posts/?feedView=all" class="footer-link-social linkedin">
+                                <i class="fab fa-linkedin-in w-5"></i> LinkedIn
+                            </a>
+                            <a href="https://www.facebook.com/share/1D6r5CUx4E/" class="footer-link-social facebook">
+                                <i class="fab fa-facebook-f w-5"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/gseven.technologies?igsh=b25tMnN6emF1Z29x" class="footer-link-social instagram">
+                                <i class="fab fa-instagram w-5"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="border-t border-gray-900/50 pt-4 flex flex-col items-center">
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.2em]">© GSeven Technologies 2026</p>
+                <div class="footer-bottom-line"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" class="scroll-btn">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!--JAVASCRIPT-->
+
+    <script src="../script.js" defer></script>
+
+    <script>
+        const form = document.querySelector('form');
+        const result = document.getElementById('result');
+        const btn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // 1. Visual Feedback: Loading
+            result.style.opacity = "1";
+            result.innerHTML = "Submitting...";
+            result.style.color = "#94a3b8"; // Slate Gray
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
+            btn.style.cursor = "not-allowed";
+
+            const formData = new FormData(form);
+
+           
+            const googleFormUrl = 'https://docs.google.com/forms/d/1s5I1Sh55uUXEmyoSgN0NQnb1vpI-vKsHLrbFjECQqFs/formResponse';
+
+            // Use 'no-cors' mode because Google Forms doesn't return a standard CORS header
+            fetch(googleFormUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+                .then(() => {
+                    // 2. Success State
+                    result.innerHTML = "Message Sent Successfully!";
+                    result.style.color = "#16a34a"; // Gseven Green
+                    form.reset();
+                })
+                .catch(() => {
+                    // 3. Error State
+                    result.innerHTML = "Submission Error. Please try again.";
+                    result.style.color = "#ef4444"; // Red
+                })
+                .finally(() => {
+                    // 4. Reset Button & Hide Message
+                    btn.disabled = false;
+                    btn.style.opacity = "1";
+                    btn.style.cursor = "pointer";
+
+                    setTimeout(() => {
+                        result.style.opacity = "0";
+                    }, 5000); // Disappears after 5 seconds
+                });
+        });
+    </script>
+</body>
+</html>

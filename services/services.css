@@ -1,0 +1,569 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--gs-black);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', sans-serif; /* Recommended clean font */
+    background: var(--gs-dark);
+}
+
+#gsMainHeader {
+    /* Solid Dark Matte or semi-transparent */
+    background-color: #0a0a0a;
+    /* OR use this for a slight glass effect: */
+    /* background-color: rgba(10, 10, 10, 0.95); */
+    /* backdrop-filter: blur(10px); */
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Ensure the container inside the header is properly aligned */
+.gs-header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.glow-text-dark {
+    transition: text-shadow 0.5s ease;
+}
+
+.reveal:hover .glow-text-dark {
+    text-shadow: 0 0 20px rgba(22, 163, 74, 0.1); /* Very subtle green glow on hover */
+}
+
+/* Responsive adjustments for the outline effect */
+.outline-text {
+    /* Ensures the outline is sharp on high-res screens */
+    paint-order: stroke fill;
+}
+
+/* Group hover logic for smooth scaling */
+.group:hover .outline-text {
+    -webkit-text-stroke: 1px transparent; /* Hide stroke on hover as fill takes over */
+}
+
+/* Mobile Tweak: Reduce letter spacing on very small screens to prevent clipping */
+@media (max-width: 380px) {
+    h2 {
+        font-size: 2.5rem !important;
+        letter-spacing: -0.02em !important;
+    }
+}
+
+/* Smooth reveal animation for the whole block */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* --- SERVICE CARD STYLING --- */
+.service-card {
+    position: relative;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    overflow: hidden;
+    height: 320px; /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Hover Lift */
+    .service-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(22, 163, 74, 0.1);
+        border-color: #22c55e;
+    }
+
+/* Icon Style */
+.service-icon {
+    font-size: 2.5rem;
+    color: #22c55e;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+/* Hidden Description Logic */
+.expand-content {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* SHOW DESCRIPTION ON HOVER */
+.service-card:hover .expand-content {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.service-card:hover .short-desc {
+    opacity: 0.5;
+}
+
+.service-card:hover .plus-btn {
+    background: #22c55e;
+    color: white;
+    transform: rotate(45deg); /* Turns plus into an 'x' */
+}
+
+/* One-Way Reveal (No Blur on Scroll Up) */
+#services .reveal.active {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    transform: translateY(0) !important;
+}
+
+/* --- Service Card Styles --- */
+.service-card {
+    height: 380px; /* Fixed height for clean grid */
+    position: relative;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Icon Box - Always Visible */
+.icon-box {
+    width: 55px;
+    height: 55px;
+    background: #f0fdf4;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #16a34a;
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+}
+
+.category-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #16a34a;
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.card-summary {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- Hover Reveal Logic --- */
+.hover-reveal {
+    position: absolute;
+    top: 100%; /* Start hidden below */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #16a34a; /* Solid brand green */
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.7;
+    transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+}
+
+.service-card:hover .hover-reveal {
+    top: 0;
+}
+
+/* Keep the card sharp on scroll up */
+#services .reveal.active {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    transform: translateY(0) !important;
+}
+
+/* --- Service Card Styles (Mobile First) --- */
+.service-card {
+    position: relative;
+    /* Remove fixed height for mobile */
+    height: auto;
+    min-height: 320px;
+    display: flex;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    /* Allow inner box to grow with text */
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* --- Responsive Desktop Fix --- */
+@media (min-width: 768px) {
+    .service-card {
+        /* Return to fixed height only on larger screens for a clean grid */
+        height: 380px;
+    }
+}
+
+/* --- Hover Reveal Fix for Mobile --- */
+.hover-reveal {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #16a34a;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+    /* Allow scrolling inside the hover if text is too long on small phones */
+    overflow-y: auto;
+}
+
+.service-card:hover .hover-reveal {
+    top: 0;
+}
+
+/* --- Service Card Container --- */
+.service-card {
+    position: relative;
+    /* Use min-height instead of fixed height to prevent text cutting */
+    min-height: 320px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover .card-inner {
+    border-color: #16a34a;
+    transform: translateY(-5px);
+}
+
+/* Icon box scaled down for a cleaner look */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: #f0fdf4;
+    color: #16a34a;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+}
+
+/* Simplified Headline */
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Description text */
+.card-summary {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- The Overlay Reveal --- */
+.hover-reveal {
+    position: absolute;
+    top: 100%; /* Hidden by default */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #16a34a;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    /* Allows text to scroll if it's too long for the card on mobile */
+    overflow-y: auto;
+}
+
+.service-card:hover .hover-reveal {
+    top: 0;
+}
+/* --- Desktop: Double-Card Hover Logic (768px+) --- */
+@media (min-width: 768px) {
+    .service-card {
+        position: relative;
+        height: 380px;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 20px;
+        background: transparent; /* Makes outer invisible */
+    }
+
+    .card-inner {
+        height: 100%;
+        padding: 2.5rem;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hover-reveal {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #16a34a;
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        color: white;
+        transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10;
+    }
+
+    .service-card:hover .hover-reveal {
+        top: 0;
+    }
+}
+
+/* --- Mobile: Single Flat Container (< 768px) --- */
+@media (max-width: 767px) {
+    /* Flatten the structure: remove outer card styling */
+    .service-card {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Collapse everything into this single box */
+    .card-inner {
+        padding: 1.25rem !important;
+        background: #ffffff !important;
+        border: 1px solid #16a34a !important; /* Thin green border */
+        border-radius: 12px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;
+    }
+
+    .card-summary {
+        display: none !important; /* Hide short summary */
+    }
+
+    /* Make main description part of the flow */
+    .hover-reveal {
+        display: block !important;
+        position: static !important;
+        background: transparent !important;
+        color: #4b5563 !important;
+        padding: 0.75rem 0 0 0 !important;
+        height: auto !important;
+        opacity: 1 !important;
+    }
+
+        .hover-reveal p {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            margin: 0;
+        }
+
+    .icon-box {
+        width: 45px !important;
+        height: 45px !important;
+        margin-bottom: 0.75rem !important;
+        font-size: 1.2rem !important;
+        background: #f0fdf4 !important;
+    }
+
+    .card-title {
+        font-size: 1.25rem !important;
+        color: #111827 !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* --- Mobile Fix: Resolving Border/Corner Conflicts --- */
+@media (max-width: 767px) {
+    .service-card {
+        /* Reset outer container completely to prevent clipping */
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important; /* Crucial: stops clipping corners */
+        height: auto !important;
+        padding: 0 !important;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-inner {
+        /* Apply all styling ONLY here to avoid conflicts */
+        display: flex !important;
+        flex-direction: column !important;
+        background: #ffffff !important;
+        /* The Border & Corners */
+        border: 1.5px solid #16a34a !important;
+        border-radius: 20px !important; /* Smooth, visible corners */
+
+        padding: 1.5rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Remove Desktop-only elements */
+    .card-summary {
+        display: none !important;
+    }
+
+    .hover-reveal {
+        display: block !important;
+        position: static !important;
+        background: transparent !important;
+        color: #4b5563 !important;
+        padding-top: 0.75rem !important;
+    }
+}
+
+/* ===== Refined Tech Cards - Lighter & Slimmer ===== */
+.gs-elite-card {
+    background: #ffffff;
+    padding: 2.5rem 2.25rem; /* Reduced padding */
+    border-radius: 24px; /* Slightly tighter corners */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+    .gs-elite-card:hover {
+        transform: translateY(-8px); /* Less aggressive jump */
+        border-color: rgba(22, 163, 74, 0.15);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.04);
+    }
+
+.gs-icon-box {
+    width: 56px; /* Smaller icon box */
+    height: 56px;
+    background: #f8fafc;
+    color: #16a34a;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.gs-elite-card:hover .gs-icon-box {
+    background: #16a34a;
+    color: #ffffff;
+    transform: rotate(3deg);
+}
+
+.gs-card-title {
+    font-size: 1.35rem; /* Smaller font size */
+    font-weight: 700; /* Dropped from 800 to 700 */
+    color: #111827;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.gs-card-text {
+    color: #6b7280; /* Softer gray */
+    line-height: 1.6;
+    font-size: 0.95rem; /* Slightly smaller text */
+    font-weight: 400; /* Regular weight for better legibility */
+}
+
+/* Mobile Tweak */
+@media (max-width: 640px) {
+    .gs-elite-card {
+        padding: 2rem;
+        text-align: center;
+        align-items: center;
+    }
+}

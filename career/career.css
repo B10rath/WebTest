@@ -1,0 +1,173 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--gs-black);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', sans-serif; /* Recommended clean font */
+    background: var(--gs-dark);
+}
+
+#gsMainHeader {
+    /* Solid Dark Matte or semi-transparent */
+    background-color: #0a0a0a;
+    /* OR use this for a slight glass effect: */
+    /* background-color: rgba(10, 10, 10, 0.95); */
+    /* backdrop-filter: blur(10px); */
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Ensure the container inside the header is properly aligned */
+.gs-header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== Elite Left-Border & Motion Effects ===== */
+
+.gs-border-transition {
+    position: relative;
+    /* This creates the subtle track for the border */
+    border-left: 2px solid #f3f4f6;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The Animated Accent Line */
+.gs-border-transition::before {
+    content: '';
+    position: absolute;
+    left: -2px; /* Align exactly over the border-left */
+    top: 50%;
+    width: 4px;
+    height: 0%; /* Start small */
+    background-color: #16a34a;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-50%);
+    border-radius: 0 4px 4px 0;
+}
+
+.gs-reveal-group:hover::before {
+    height: 60%; /* Expands vertically on hover */
+}
+
+.gs-reveal-group:hover {
+    background-color: #fafafa;
+    padding-left: 10px; /* Subtle nudge to the right on hover */
+}
+
+/* Micro-Movements for Text */
+.gs-fade-up, .gs-fade-up-delayed, .gs-fade-up-more {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gs-reveal-group:hover .gs-fade-up {
+    transform: translateY(-4px);
+}
+
+.gs-reveal-group:hover .gs-fade-up-delayed {
+    transform: translateY(-6px);
+}
+
+.gs-reveal-group:hover .gs-fade-up-more {
+    color: #374151;
+    transform: translateY(-8px);
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+    .gs-border-transition::before {
+        left: 0;
+        width: 3px;
+    }
+}
+
+
+/* Typographic Action */
+.gs-text-action {
+    background: transparent !important;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.gs-text-action span {
+    display: inline-block;
+    line-height: 1;
+}
+
+.gs-text-action:hover span {
+    transform: skewX(-5deg); /* Subtle editorial lean */
+    letter-spacing: -0.02em;
+}
+
+/* Hover Line Logic */
+.gs-text-action:hover + div {
+    width: 100%;
+    background-color: #16a34a;
+}
+
+/*  The Main Section Wrapper */
+.gs-join-section {
+    position: relative;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/*  Section Hover - Subtly change the background of the WHOLE section */
+.gs-join-section:hover {
+    background-color: #f9fagb;
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.03);
+}
+
+/*  The "Lift" Effect for content */
+.gs-join-section .max-w-6xl {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gs-join-section:hover .max-w-6xl {
+    transform: translateY(-8px);
+}
+
+
+/* This targets the button specifically to ensure it stays transparent */
+.gs-text-action {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/*  Force transparency even when the parent section is hovered */
+.gs-join-section:hover .gs-text-action {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/*  Keep the icon circle clean */
+.gs-text-action .ml-6 {
+    /* Ensuring the circle background only changes when you hover the button itself, 
+       not just the section */
+    transition: all 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    #menuBtn.gs-elite-hamburger {
+        padding-top: 30px !important; /* Pushes the 'icon' inside the button down */
+        height: auto !important; /* Ensures the button expands to show the shift */
+    }
+}

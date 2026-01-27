@@ -1,0 +1,453 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--gs-black);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', sans-serif; /* Recommended clean font */
+    background: var(--gs-dark);
+}
+
+#gsMainHeader {
+    /* Solid Dark Matte or semi-transparent */
+    background-color: #0a0a0a;
+    /* OR use this for a slight glass effect: */
+    /* background-color: rgba(10, 10, 10, 0.95); */
+    /* backdrop-filter: blur(10px); */
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Ensure the container inside the header is properly aligned */
+.gs-header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Current Page State for Contact CTA */
+.gs-cta.active {
+    background: var(--gs-primary) !important;
+    color: #000 !important; /* Makes text readable against the primary color */
+    box-shadow: 0 4px 15px var(--gs-primary-glow);
+    border-color: var(--gs-primary);
+    cursor: default; /* Optional: shows user they are already here */
+}
+
+/* Optional: Subtle indicator for other standard nav items if they become active */
+.gs-nav-item.active:not(.gs-cta) {
+    color: var(--gs-primary) !important;
+    position: relative;
+}
+
+.gs-nav-item.active:not(.gs-cta)::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gs-primary);
+}
+
+/* Container Background */
+.gs-contact-section {
+    background-color: #ffffff;
+}
+
+/* Input Styling for Light Mode */
+.gs-input {
+    background: #f9fafb; /* Soft light gray */
+    border: 1px solid #e5e7eb;
+    color: #1a1a1a;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.gs-input:focus {
+    outline: none;
+    border-color: #16a34a; /* Green focus border */
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.gs-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Button Styling */
+.gs-btn-submit {
+    background-color: #1a1a1a; /* Dark button for contrast on white bg */
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    padding: 20px 40px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gs-btn-submit:hover {
+    background-color: #16a34a; /* Turns green on hover */
+    transform: translateY(-2px);
+}
+
+.gs-contact-full-wrapper {
+    /* Increase this value until the text clears your header */
+    padding-top: 160px;
+}
+
+/* Container Background & Spacing */
+.gs-contact-full-wrapper {
+    background-color: #ffffff;
+    padding-bottom: 100px;
+}
+
+/* Typography Hierarchy */
+label {
+    font-size: 10px !important;
+    letter-spacing: 2.5px;
+    color: #a1a1a1;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+/* The "Stylish" Input Entry */
+.gs-input {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #eeeeee !important; /* Very light line */
+    border-radius: 0 !important;
+    padding: 16px 0 !important; /* Horizontal padding removed for 'Line' look */
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover & Focus Effects */
+.gs-input:hover {
+    border-bottom-color: #d1d1d1 !important;
+}
+
+.gs-input:focus {
+    outline: none !important;
+    border-bottom-color: #16a34a !important; /* Gseven Green */
+    padding-left: 8px !important; /* Subtle "nudge" effect on focus */
+}
+
+/* Change label color when input is focused */
+.flex-col:focus-within label {
+    color: #16a34a;
+}
+
+/* The Signature Gseven Button */
+.gs-btn-submit {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 22px 60px;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    border: 1px solid #1a1a1a;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+}
+
+.gs-btn-submit:hover {
+    background: transparent;
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+    transform: translateX(10px); /* Moves slightly to the right */
+}
+
+ /* The Card Container */
+.gs-form-card {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 12px;
+    /* Soft architectural shadow for depth */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+}
+
+/* Label Styling */
+.gs-label {
+    font-size: 11px !important;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #64748b; /* Slate Gray */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* High-End Input Styling */
+.gs-input {
+    background: #f8fafc !important; /* Extremely light blue-gray */
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    padding: 14px 18px !important;
+    color: #0f172a;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.gs-input::placeholder {
+    color: #cbd5e1;
+    font-weight: 400;
+}
+
+/* Hover & Focus Interactions */
+.gs-input:hover {
+    border-color: #cbd5e1 !important;
+    background: #f1f5f9 !important;
+}
+
+.gs-input:focus {
+    outline: none !important;
+    background: #ffffff !important;
+    border-color: #16a34a !important; /* GSeven Green */
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.08) !important;
+    transform: translateY(-2px);
+}
+
+/* Button Styling: Minimalist & Strong */
+.gs-btn-submit {
+    background: #0f172a; /* Deep Charcoal/Black */
+    color: #ffffff;
+    padding: 18px 40px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: none;
+}
+
+.gs-btn-submit:hover {
+    background: #16a34a; /* Green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(22, 163, 74, 0.2);
+}
+
+.gs-btn-submit:active {
+    transform: translateY(-1px);
+}
+
+.gs-form-card {
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 0px; /* Sharp corners look more "industrial" and professional */
+    /* Strong, visible border - No more 'too light' look */
+    border: 1px solid #1a1a1a;
+    /* Solid offset shadow - like premium architecture sites */
+    box-shadow: 10px 10px 0px #f3f4f6;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Hover Effect: Pure Color & Contrast Change */
+.gs-form-card:hover {
+    /* Background becomes a very crisp white */
+    background-color: #ffffff;
+    /* Border changes to Gseven Green */
+    border-color: #16a34a;
+    /* Shadow becomes Green and moves slightly for a "Pop" effect */
+    box-shadow: 15px 15px 0px rgba(22, 163, 74, 0.1);
+}
+
+/* Style for the internal labels to match this bold look */
+.gs-label {
+    color: #1a1a1a !important; /* Bold black text for labels */
+    font-weight: 900 !important;
+    font-size: 11px !important;
+    letter-spacing: 1px;
+}
+
+/* Branded Separation */
+.gs-section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0 20%, #16a34a 50%, #e2e8f0 80%, transparent);
+}
+
+/* Typography */
+.gs-subheading {
+    color: #16a34a;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    margin-bottom: 0.75rem;
+}
+
+.gs-main-heading {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive text size */
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: -0.05em;
+}
+
+/* Map Wrapper & Iframe */
+.gs-map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #f1f5f9;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.05);
+}
+
+.gs-map-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) contrast(1.1) brightness(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gs-map-wrapper:hover .gs-map-iframe {
+    filter: grayscale(0%) contrast(1) brightness(1);
+}
+
+/* Floating Card */
+.gs-map-floating-card {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.gs-map-wrapper:hover .gs-map-floating-card {
+    transform: translateY(-5px);
+    background: #ffffff;
+}
+
+.gs-map-icon-box {
+    width: 44px;
+    height: 44px;
+    background: #1a1a1a;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
+
+.gs-map-link {
+    font-size: 11px;
+    font-weight: 800;
+    color: #16a34a;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.gs-map-link:hover {
+    text-decoration: underline;
+}
+
+/* Fully Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .gs-map-wrapper {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gs-map-wrapper {
+        height: auto;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gs-map-iframe {
+        height: 300px;
+    }
+
+    .gs-map-floating-card {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        background: #f9fafb;
+        backdrop-filter: none;
+    }
+
+    .gs-section-divider {
+        margin-bottom: 20px;
+    }
+}
+
+/* Action Button Styling */
+.gs-map-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.gs-map-action-btn:hover {
+    background: #16a34a;
+    color: #ffffff;
+    border-color: #16a34a;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+}
+
+/* Pulsing Dot Animation (Standard Tailwind CSS often includes this, 
+   but here it is in raw CSS just in case) */
+@keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media (max-width: 768px) {
+    #menuBtn.gs-elite-hamburger {
+        padding-top: 30px !important; /* Pushes the 'icon' inside the button down */
+        height: auto !important; /* Ensures the button expands to show the shift */
+    }
+}

@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Services - gseven Technologies</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="../images/logo__1.png">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">-->
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    <link rel="stylesheet" href="services.css" />
+    <link rel="stylesheet" href="../components.css" />
+</head>
+<body class="bg-black">
+
+    <div id="cube-loader" style="position: fixed; inset: 0; z-index: 9999; background: #050505; display: flex; align-items: center; justify-content: center; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden;">
+        <div style="perspective: 1000px;">
+            <div id="cube" class="building-cube" style="width: 40px; height: 40px; position: relative; transform-style: preserve-3d; animation: rotateCube 4s infinite linear;">
+
+                <div class="cube-face face-front"></div>
+                <div class="cube-face face-back"></div>
+                <div class="cube-face face-right"></div>
+                <div class="cube-face face-left"></div>
+                <div class="cube-face face-top"></div>
+                <div class="cube-face face-bottom"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <header id="gsMainHeader" class="gs-header-absolute">
+        <div class="gs-header-container">
+            <div class="gs-logo-box">
+                <img src="../images/g__1.png" alt="Logo" class="gs-header-logo">
+            </div>
+            <nav class="gs-desktop-nav">
+                <ul class="gs-nav-ul">
+                    <li><a href="../home.html" class="gs-nav-item">Home</a></li>
+                    <li><a href="services.html" class="gs-nav-item active">Services</a></li>
+                    <li><a href="../career/career.html" class="gs-nav-item">Careers</a></li>
+                    <li><a href="../contact/contact.html" class="gs-nav-item gs-cta">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <button id="menuBtn" class="gs-elite-hamburger" aria-label="Menu">
+        <div class="gs-burger-icon">
+            <span class="gs-line line-t"></span>
+            <span class="gs-line line-m"></span>
+            <span class="gs-line line-b"></span>
+        </div>
+    </button>
+
+    <div id="gsOverlay" class="gs-overlay-mask"></div>
+    <aside id="gsSideDrawer" class="gs-drawer-panel">
+        <div class="gs-drawer-header">
+            <span class="gs-drawer-title">MENU</span>
+            <button id="closeDrawer" class="gs-drawer-x">&times;</button>
+        </div>
+        <nav class="gs-drawer-links">
+            <a href="../home.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="../career/career.html">Careers</a>
+            <a href="../contact/contact.html">Contact</a>
+        </nav>
+    </aside>
+
+    <section id="services" class="pt-[150px] pb-24 px-6 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24 reveal pt-12 px-4 group cursor-default">
+                <span class="inline-block text-green-600 font-black tracking-[0.2em] md:tracking-[0.4em] uppercase text-[9px] md:text-[10px] mb-4 border-b-2 border-green-600/20 pb-1 transition-all duration-500 group-hover:border-green-600 group-hover:tracking-[0.5em]">
+                    Core Capabilities
+                </span>
+
+                <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-8 tracking-tighter leading-[0.9] uppercase transition-all duration-700">
+                    What We<br />
+                    <span class="outline-text transition-all duration-700 group-hover:text-gray-900 group-hover:opacity-100"
+                          style="-webkit-text-stroke: 1px #111827; color: transparent; opacity: 0.3;">
+                        Do.
+                    </span>
+                </h2>
+
+                <div class="flex justify-center items-center gap-4 mb-8">
+                    <div class="w-8 md:w-12 h-[1px] bg-gray-200 transition-all duration-500 group-hover:w-16 group-hover:bg-green-600"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-600 transition-all duration-500 group-hover:scale-[2] group-hover:shadow-[0_0_15px_rgba(22,163,74,0.5)]"></div>
+                    <div class="w-8 md:w-12 h-[1px] bg-gray-200 transition-all duration-500 group-hover:w-16 group-hover:bg-green-600"></div>
+                </div>
+
+                <p class="text-base md:text-xl text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed italic border-l-2 border-transparent px-6 transition-all duration-500 group-hover:border-green-600 group-hover:text-gray-800">
+                    We deliver dependable digital solutions with a strong focus on quality, performance, and client satisfaction, helping organizations improve productivity and achieve their business objectives through technology.
+                </p>
+            </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+
+                        <h3 class="card-title">Software Development</h3>
+
+                        <p class="card-summary text-gray-500">
+                            Custom-engineered solutions designed to automate business processes and drive efficiency.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>We build secure, scalable enterprise applications tailored to your unique workflow. From legacy modernization to cloud-native engineering, we ensure your tech stack is future-proof.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-code"></i>
+                        </div>
+
+                        <h3 class="card-title">Web Development</h3>
+
+                        <p class="card-summary text-gray-500">
+                            High-performance, responsive websites built for speed and global scale.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                Our team builds modern, scalable web applications using leading frameworks and technologies to deliver fast, responsive, and future-ready solutions.
+                            </p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-bezier-curve"></i>
+                        </div>
+
+                        <h3 class="card-title">UI/UX Design</h3>
+
+                        <p class="card-summary text-gray-500">
+                            User-centric interfaces designed to maximize engagement and conversion.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                We combine user psychology with modern aesthetics to craft seamless digital experiences. Our designs ensure your product is not only visually stunning but also effortless and intuitive to navigate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+
+                        <h3 class="card-title">App Development</h3>
+
+                        <p class="card-summary text-gray-500">
+                            Native and cross-platform mobile apps built for performance and scale.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                We develop high-performance iOS and Android applications using native and hybrid frameworks. Our apps are engineered for speed, security, and a superior user experience on every device.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-robot"></i>
+                        </div>
+
+                        <h3 class="card-title">AI Chatbots Development</h3>
+
+                        <p class="card-summary text-gray-500">
+                            Intelligent conversational agents that automate workflows and engage users 24/7.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                We build custom AI chatbots integrated with NLP and Machine Learning to handle complex queries, automate lead generation, and provide instant, human-like responses to your customers around the clock.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+
+                        <h3 class="card-title">Custom E-commerce Development</h3>
+
+                        <p class="card-summary text-gray-500">
+                            Scalable online stores built to maximize conversions and streamline sales.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                We build reliable e-commerce platforms with secure payments and seamless user experiences to drive consistent sales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+
+                        <h3 class="card-title">Web Application Penetration Testing</h3>
+
+                        <p class="card-summary text-gray-500">
+                            Advanced security audits to identify and eliminate system vulnerabilities.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                We perform thorough security assessments to protect your assets, addressing vulnerabilities from web applications to APIs against modern cyber threats.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+
+                        <h3 class="card-title">IT Consultancy</h3>
+
+                        <p class="card-summary text-gray-500">
+                            Strategic technology roadmaps designed to align IT infrastructure with business goals.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                We provide expert guidance on digital transformation, IT infrastructure, and cybersecurity, helping businesses build secure, scalable, and cost-effective technology solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="card-inner">
+                        <div class="icon-box">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+
+                        <h3 class="card-title">Digital Marketing</h3>
+
+                        <p class="card-summary text-gray-500">
+                            Data-driven growth strategies to amplify your brand presence and ROI.
+                        </p>
+
+                        <div class="hover-reveal">
+                            <p>
+                                We implement strategic SEO and social media initiatives to strengthen brand presence, engage audiences, and enhance overall business performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-[#f9fafb] pt-20 pb-24 px-6 lg:pt-20 lg:pb-24 overflow-hidden">
+
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-[400px] h-[400px] bg-green-50/50 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-50/30 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto z-10">
+            <div class="text-center mb-12 lg:mb-20">
+                <span class="inline-block px-4 py-1.5 mb-5 text-[9px] font-bold tracking-[0.3em] text-green-600 uppercase bg-green-50 border border-green-100 rounded-full">
+                    Our Tech Stack
+                </span>
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-4">
+                    Tech We <span class="text-green-600">Master</span>
+                </h2>
+                <p class="max-w-xl mx-auto text-sm sm:text-lg text-gray-500 font-normal leading-relaxed">
+                    We use trusted technologies to build fast, secure, and scalable digital solutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+                <div class="gs-elite-card">
+                    <div class="gs-icon-box">
+                        <svg viewBox="-11.5 -10.23 23 20.46" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="0" cy="0" r="2.05" fill="currentColor" />
+                            <g stroke="currentColor" stroke-width="1.2" fill="none">
+                                <ellipse rx="11" ry="4.2" />
+                                <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+                                <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="gs-card-title">React</h3>
+                    <p class="gs-card-text">Creating smooth, component-based interfaces with optimized state handling.</p>
+                </div>
+
+                <div class="gs-elite-card">
+                    <div class="gs-icon-box">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="4" cy="21" r="2.5" fill="currentColor" />
+                            <path d="M8 22V10H10.5L14 16.5V10H16.5V22H14L10.5 15.5V22H8Z" fill="currentColor" />
+                            <path d="M18 22V10H24V12.5H20.5V14.5H23.5V17H20.5V19.5H24V22H18Z" fill="currentColor" />
+                            <path d="M25 12.5V10H31V12.5H29.25V22H26.75V12.5H25Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="gs-card-title">.NET Core</h3>
+                    <p class="gs-card-text">Designing secure, high-performance backend services with support for complex logic.</p>
+                </div>
+
+                <div class="gs-elite-card">
+                    <div class="gs-icon-box">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-1.63-1.11-3-2.61-3.41A5.5 5.5 0 0 0 8 10.5a3.5 3.5 0 0 0-3 3.41c0 1.93 1.57 3.5 3.5 3.5h9z" />
+                        </svg>
+                    </div>
+                    <h3 class="gs-card-title">Cloud Ecosystem</h3>
+                    <p class="gs-card-text">Enabling scalable and reliable infrastructure designed for high availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-300 pt-10 pb-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8 mb-8">
+                <div class="flex flex-col space-y-4 lg:w-1/4 mt-6">
+                    <img src="../images/g__1.png" class="h-16 w-auto object-contain self-start footer-logo" alt="GSeven Logo">
+
+                    <!--<div class="gs-hashtag">
+                        <span class="text-[#facc15]">#</span>startupindia
+                    </div>-->
+
+                    <p class="text-gray-400 text-sm leading-relaxed mt-2 max-w-[240px]">
+                        Building reliable software solutions with precision, performance, and client trust at the core.
+                    </p>
+
+                    <a href="../contact/contact.html#map-section" class="gs-map-btn">
+                        <i class="fa-solid fa-location-arrow mr-2"></i>
+                        <span>Find us on Map</span>
+                    </a>
+                </div>
+
+                <div class="flex-1 bg-gray-900/40 backdrop-blur-md rounded-2xl p-6 border border-gray-800/50 flex flex-col md:flex-row justify-between gap-8 mt-6">
+
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Quick Links</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="../home.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Home</span></a></li>
+                            <li><a href="services.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Services</span></a></li>
+                            <li><a href="../career/career.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Careers</span></a></li>
+                            <li><a href="../contact/contact.html" class="footer-link"><i class="fa-solid fa-arrow-right-long gs-link-icon"></i><span class="gs-link-text">Contact</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col space-y-3 max-w-[250px]">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Reach Us</h3>
+                        <div class="space-y-3 text-sm">
+                            <p class="footer-contact-item flex items-center hover:text-white transition-colors">
+                                <i class="fa-solid fa-phone text-green-500 w-6"></i> (+91) 87142-00152
+                            </p>
+                            <p class="footer-contact-item flex items-center hover:text-white transition-colors">
+                                <i class="fa-solid fa-envelope text-green-500 w-6"></i> gseventechnologies@gmail.com
+                            </p>
+                            <p class="footer-contact-item flex items-start leading-relaxed hover:text-white transition-colors">
+                                <i class="fa-solid fa-location-dot text-green-500 w-6 mt-1"></i>
+                                Second floor, Colombo castle,<br />
+                                Koodalmanikyam Temple Rd, <br />
+                                Irinjalakuda, Kerala 680121
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col space-y-3">
+                        <h3 class="text-white font-bold text-xs uppercase tracking-widest opacity-80">Social</h3>
+                        <div class="flex flex-col space-y-2 text-sm">
+                            <a href="https://www.linkedin.com/company/gseventechnologies/posts/?feedView=all" class="footer-link-social linkedin">
+                                <i class="fab fa-linkedin-in w-5"></i> LinkedIn
+                            </a>
+                            <a href="https://www.facebook.com/share/1D6r5CUx4E/" class="footer-link-social facebook">
+                                <i class="fab fa-facebook-f w-5"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/gseven.technologies?igsh=b25tMnN6emF1Z29x" class="footer-link-social instagram">
+                                <i class="fab fa-instagram w-5"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="border-t border-gray-900/50 pt-4 flex flex-col items-center">
+                <p class="text-[10px] text-gray-600 uppercase tracking-[0.2em]">© GSeven Technologies 2026</p>
+                <div class="footer-bottom-line"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" class="scroll-btn">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!--JAVASCRIPT-->
+
+    <script src="../script.js" defer></script>
+</body>
+</html>

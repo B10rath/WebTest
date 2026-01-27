@@ -1,0 +1,1012 @@
+﻿:root {
+    --gs-primary: #22c55e; /* Green */
+    --gs-accent: #facc15; /* Yellow */
+    --gs-white: #ffffff;
+    --gs-black: #000000;
+    --glass-bg: rgba(5, 5, 5, 0.8);
+    --text-white: #ffffff;
+    --gs-bg-dark: rgba(5, 5, 5, 0.95);
+    --gs-primary-glow: rgba(34, 197, 94, 0.4);
+    --gs-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --gs-dark: #050505;
+    --gs-transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --gs-dark: #121212;
+    --gs-bezier: cubic-bezier(0.16, 1, 0.3, 1); /* Smooth, high-end motion */
+}
+
+/*LOADER*/
+.cube-wrapper {
+    perspective: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.cube {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    transform-style: preserve-3d;
+    animation: rotateCube 4s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #22c55e;
+    background: rgba(34, 197, 94, 0.05);
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+}
+
+/* Positioning faces in 3D space */
+.front {
+    transform: translateZ(30px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(30px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(30px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(30px);
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+@keyframes pulseText {
+    0%, 100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 1. The Building Effect (Faces pulse/grow at different times) */
+@keyframes faceBuild {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+        border-width: 1px;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+        border-width: 3px;
+    }
+}
+
+.cube-face {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #22c55e;
+    background: rgba(34, 197, 94, 0.05);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+    animation: faceBuild 2s infinite ease-in-out;
+}
+
+/* 2. Positioning + Staggered Animation Delays */
+.face-front {
+    transform: translateZ(20px);
+    animation-delay: 0.0s;
+}
+
+.face-back {
+    transform: rotateY(180deg) translateZ(20px);
+    animation-delay: 0.2s;
+}
+
+.face-right {
+    transform: rotateY(90deg) translateZ(20px);
+    animation-delay: 0.4s;
+}
+
+.face-left {
+    transform: rotateY(-90deg) translateZ(20px);
+    animation-delay: 0.6s;
+}
+
+.face-top {
+    transform: rotateX(90deg) translateZ(20px);
+    animation-delay: 0.8s;
+}
+
+.face-bottom {
+    transform: rotateX(-90deg) translateZ(20px);
+    animation-delay: 1.0s;
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* 3. Exit Animation (When loaded) */
+.loader-finish {
+    opacity: 0 !important;
+    transform: scale(2); /* Cube "explodes" outward on finish */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/*HEADER*/
+
+.gs-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* --- LOGO --- */
+.gs-header-logo {
+    height: 85px;
+    width: auto;
+    transition: var(--gs-transition);
+}
+
+.gs-header-fixed.scrolled .gs-header-logo {
+    height: 50px;
+}
+
+/* --- DESKTOP NAVIGATION --- */
+.gs-nav-ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    align-items: center;
+}
+
+.gs-nav-item {
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: var(--gs-transition);
+}
+
+.gs-nav-item:hover {
+    color: var(--gs-white) !important;
+}
+
+/* Contact Ghost Pill */
+.gs-cta {
+    background: transparent !important;
+    color: var(--gs-primary) !important;
+    border: 2px solid var(--gs-primary);
+    padding: 10px 24px !important;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.gs-cta:hover {
+    background: var(--gs-primary) !important;
+    color: #000 !important;
+    box-shadow: 0 8px 20px var(--gs-primary-glow);
+}
+
+
+/* --- RESPONSIVE LOGIC (Mobile & Tab) --- */
+@media (max-width: 1024px) {
+    .gs-desktop-nav {
+        display: none !important; /* Always hide nav on mobile/tab */
+    }
+
+    .gs-hamburger {
+        display: flex !important; /* Always show menu button on mobile/tab */
+    }
+
+    .gs-header-logo {
+        height: 60px; /* Smaller logo for smaller screens */
+    }
+}
+
+/* --- SIDE DRAWER --- */
+.gs-drawer-panel {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off-screen */
+    width: 320px;
+    height: 100vh;
+    background: var(--gs-dark);
+    z-index: 11000;
+    padding: 80px 40px;
+    transition: var(--gs-transition);
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.gs-drawer-panel.active {
+    right: 0;
+}
+
+.gs-drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.gs-drawer-links a {
+    color: var(--gs-white);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* --- HOVER LINE ANIMATION --- */
+.gs-nav-item {
+    position: relative; /* Required for the absolute line */
+    padding: 8px 0;
+}
+
+/* Create the hidden line */
+.gs-nav-item:not(.gs-cta)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Start at center */
+    width: 0;
+    height: 2px;
+    background: var(--gs-primary);
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%); /* Keeps it centered as it grows */
+}
+
+/* Show line on Hover */
+.gs-nav-item:not(.gs-cta):hover::after {
+    width: 100%;
+}
+
+/* Keep line visible on the Active page */
+.gs-nav-item.active:not(.gs-cta)::after {
+    width: 100%;
+}
+
+/* Subtle text glow on hover */
+.gs-nav-item:hover {
+    color: var(--gs-white) !important;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.gs-drawer-links a {
+    color: var(--gs-white);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border-left: 0px solid var(--gs-primary);
+    padding-left: 0;
+}
+
+.gs-drawer-links a:hover {
+    color: var(--gs-primary);
+    padding-left: 15px; /* Slides text to the right */
+    border-left: 4px solid var(--gs-primary); /* Adds a green indicator bar */
+}
+
+/* --- HEADER: Absolute (Moves with Hero) --- */
+.gs-header-absolute {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1rem 6%;
+    background: transparent;
+}
+
+/* --- THE BUTTON --- */
+.gs-elite-hamburger {
+    position: fixed;
+    z-index: 9999;
+    /*background: transparent;*/
+    border: none;
+    cursor: pointer;
+    padding: 15px; /* Large hit area, invisible button */
+    transition: var(--gs-bezier);
+}
+
+/* --- POSITIONING --- */
+@media (min-width: 1025px) {
+    .gs-elite-hamburger {
+        top: 40px;
+        right: 40px; /* Far right on PC */
+        opacity: 0;
+        visibility: hidden;
+    }
+
+        .gs-elite-hamburger.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+}
+
+@media (max-width: 1024px) {
+    .gs-elite-hamburger {
+        top: 20px; /* Lower on Mobile as requested */
+        right: 20px;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* --- THE 3 GREEN LINES (ASIDE) --- */
+.gs-burger-icon {
+    width: 32px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end; /* Right-aligns the lines */
+}
+
+
+/* Optional: Slight rotation on hover for "Interactive" feel */
+.gs-elite-hamburger:hover {
+    transform: rotate(-90deg);
+}
+
+/* --- ENHANCED VISIBILITY LINES --- */
+.gs-line {
+    height: 3.5px; /* Increased thickness for better visibility */
+    background-color: var(--gs-primary);
+    border-radius: 10px; /* Rounded ends look more professional */
+    transition: all 0.5s var(--gs-bezier);
+    /* THE TRICK: Subtle Emerald Glow */
+    /* This makes the green visible even if the user has low brightness */
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+}
+
+/* Initial Variable Widths */
+.line-t {
+    width: 32px;
+}
+
+.line-m {
+    width: 22px;
+}
+/* Short middle line */
+.line-b {
+    width: 32px;
+}
+
+/* --- THE MODERN HOVER EFFECT --- */
+.gs-elite-hamburger:hover .line-t {
+    width: 22px;
+    transform: translateY(2px);
+}
+
+.gs-elite-hamburger:hover .line-m {
+    width: 32px; /* Middle line grows */
+}
+
+.gs-elite-hamburger:hover .line-b {
+    width: 22px;
+    transform: translateY(-2px);
+}
+
+/* Make the icon slightly larger for mobile visibility */
+@media (max-width: 1024px) {
+    .gs-burger-icon {
+        transform: scale(1.1); /* 10% larger on mobile */
+    }
+}
+
+.gs-drawer-panel.active {
+    right: 0;
+}
+
+.gs-drawer-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+}
+
+.gs-drawer-x {
+    background: none;
+    border: none;
+    color: var(--gs-white);
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.gs-drawer-x:hover {
+    color: indianred;
+}
+
+.gs-overlay-mask {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10500;
+    display: none;
+}
+
+.gs-overlay-mask.active {
+    display: block;
+}
+
+/* --- SIDE DRAWER TITLE (The "Menu" text you requested) --- */
+.gs-drawer-title {
+    color: var(--gs-primary);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* --- SIDE DRAWER PANEL (Responsive Width) --- */
+.gs-drawer-panel {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start hidden */
+    width: 320px; /* Reduced width for desktop */
+    height: 100vh;
+    background: #0a0a0a;
+    z-index: 11000;
+    padding: 30px;
+    transition: var(--gs-transition);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* MOBILE FIX: Reduce width so it's not full screen */
+@media (max-width: 480px) {
+    .gs-drawer-panel {
+        width: 75%; /* Covers 75% of screen, not full screen */
+    }
+}
+
+.gs-drawer-panel.active {
+    right: 0;
+}
+
+/* --- MOBILE MENU BUTTON POSITIONING --- */
+@media (max-width: 1024px) {
+    /* Hide the main absolute header links on mobile */
+    .gs-desktop-nav {
+        display: none !important;
+    }
+
+    /* Force the Menu button to be visible and fixed from the start on mobile */
+    .gs-sticky-hamburger {
+        opacity: 1 !important;
+        visibility: visible !important;
+        top: 20px !important;
+        right: 5% !important;
+        background: rgba(34, 197, 94, 0.1);
+        padding: 8px 15px;
+    }
+}
+
+/* --- DRAWER HEADER ALIGNMENT --- */
+.gs-drawer-header {
+    display: flex;
+    justify-content: space-between; /* Pushes Title to left, X to right */
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+}
+
+/* Align to the absolute left edge */
+.gs-drawer-title {
+    color: var(--gs-primary);
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.75rem; /* Smaller, premium feel */
+    text-transform: uppercase;
+}
+
+.gs-drawer-x {
+    background: none;
+    border: none;
+    color: var(--gs-white);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
+}
+
+/* --- REFINED DRAWER LINKS (Smaller Size) --- */
+.gs-drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Tighter spacing */
+}
+
+.gs-drawer-links a {
+    color: rgba(255, 255, 255, 0.7); /* Slightly faded for professional look */
+    text-decoration: none;
+    font-size: 0.85rem; /* Smaller, modern scale */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+}
+
+.gs-drawer-links a:hover {
+    color: var(--gs-primary);
+    padding-left: 8px; /* Subtle movement */
+}
+
+.gs-drawer-links a:hover {
+    color: var(--gs-primary);
+    padding-left: 8px; /* Subtle movement */
+}
+
+/* Ensure the drawer itself has consistent padding */
+.gs-drawer-panel {
+    padding: 30px 25px; /* Balanced inner spacing */
+}
+
+/* --- FOOTER MAIN LAYOUT --- */
+footer {
+    position: relative;
+    background-color: #000;
+    width: 100%;
+    z-index: 20;
+    padding-top: 2.5rem; /* Reduced from 3rem (pt-12) */
+    padding-bottom: 1.5rem; /* Reduced from 2rem (pb-8) */
+}
+
+/* --- LOGO SIZE --- */
+.footer-logo {
+    height: 70px; /* Balanced height for better vertical space */
+    width: auto;
+    transition: transform 0.3s ease;
+    align-self: flex-start;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+}
+
+/* --- HASHTAG HOVER EFFECT --- */
+.gs-hashtag {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.gs-hashtag:hover {
+    color: #facc15;
+    letter-spacing: 2.5px;
+    text-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+}
+
+/* --- MAP SHORTCUT BUTTON --- */
+.gs-map-btn {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    padding: 8px 16px; /* Slightly tighter padding */
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    width: fit-content;
+    /* This is the key: margins don't work well on standard <a> tags 
+       unless they have a display property set */
+    display: inline-flex !important;
+    /* Adjust this pixel value to push it down exactly where you want it */
+    margin-top: 24px !important;
+}
+
+/* --- DESKTOP ONLY ADJUSTMENTS --- */
+@media (min-width: 1024px) {
+    .gs-hashtag {
+        /* Pushes the button a little to the RIGHT */
+        margin-left: 15px !important;
+        /* Ensures the button is treated as a block for margins to work */
+        display: inline-flex !important;
+    }
+}
+
+/* --- DESKTOP ONLY ADJUSTMENTS --- */
+@media (min-width: 1024px) {
+    .gs-map-btn {
+        /* Pushes the button DOWN from the hashtag */
+        margin-top: 25px !important;
+        /* Pushes the button a little to the RIGHT */
+        margin-left: 10px !important;
+        /* Ensures the button is treated as a block for margins to work */
+        display: inline-flex !important;
+    }
+}
+
+.gs-map-btn:hover {
+    background: #22c55e;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+}
+
+/* --- QUICK LINKS SLIDING EFFECT (ARROW) --- */
+.footer-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(209, 213, 219, 0.7);
+    padding: 3px 0; /* Tighter vertical spacing */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.gs-link-arrow {
+    font-size: 10px;
+    color: #22c55e;
+    width: 0; /* Hidden by default */
+    opacity: 0; /* Invisible by default */
+    transform: translateX(-10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gs-link-text {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
+}
+
+.footer-link:hover .gs-link-arrow {
+    width: 18px; /* Expands to create space for arrow */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.footer-link:hover .gs-link-text {
+    color: #ffffff;
+    transform: translateX(4px); /* Moves text smoothly to the right */
+}
+
+/* --- REACH US / CONTACT ITEMS --- */
+.footer-contact-item {
+    color: rgba(209, 213, 219, 0.7);
+    transition: color 0.3s ease;
+}
+
+.footer-contact-item:hover {
+    color: #ffffff;
+}
+
+/* --- SOCIAL BRAND HOVERS --- */
+.footer-link-social {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.linkedin:hover {
+    color: #0077b5 !important;
+    transform: translateX(8px);
+}
+
+.facebook:hover {
+    color: #1877f2 !important;
+    transform: translateX(8px);
+}
+
+.instagram:hover {
+    color: #e4405f !important;
+    transform: translateX(8px);
+}
+
+/* --- BOTTOM DECORATION --- */
+.footer-bottom-line {
+    width: 30px;
+    height: 2px;
+    background: #22c55e;
+    margin-top: 10px;
+    transition: width 0.5s ease;
+}
+
+footer:hover .footer-bottom-line {
+    width: 60px;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet (iPad/Large Mobile) */
+@media (max-width: 1024px) {
+    footer {
+        padding-top: 2rem;
+    }
+
+    .flex-1.bg-gray-900\/40 {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Split into 2 columns */
+        gap: 30px;
+        padding: 1.5rem; /* Tighter internal padding */
+    }
+
+    footer .flex-col.lg\:flex-row {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo {
+        align-self: center !important;
+    }
+
+    .gs-map-btn {
+        margin: 0 auto;
+    }
+}
+
+/* Mobile (Phones) */
+@media (max-width: 1024px) {
+    .flex-1.bg-gray-900\/40 {
+        grid-template-columns: 1fr; /* Single column stack */
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .footer-link-social, .footer-link, .footer-contact-item {
+        justify-content: center;
+    }
+
+    /* Remove arrow animation on mobile for cleaner centered layout */
+    .gs-link-arrow {
+        display: none;
+    }
+
+    .footer-link:hover .gs-link-text {
+        transform: scale(1.1); /* Slight zoom instead of slide on mobile */
+        color: #fff;
+    }
+
+    .footer-link-social:hover {
+        transform: translateY(-3px); /* Vertical lift for touch targets */
+    }
+}
+
+/* --- QUICK LINKS CONTAINER SHIFT --- */
+/* This moves the specific Quick Links column down slightly */
+.flex.flex-col.space-y-3 {
+    margin-top: 10px;
+}
+
+/* --- QUICK LINKS SLIDING SYMBOL EFFECT --- */
+.footer-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(209, 213, 219, 0.7);
+    padding: 4px 0;
+    transition: color 0.3s ease;
+    /* Ensure no clipping occurs during the slide */
+    overflow: visible;
+}
+
+/* THE SYMBOL: Hidden by default */
+.gs-link-icon {
+    font-size: 10px;
+    color: #22c55e;
+    width: 0; /* Takes up NO space initially */
+    opacity: 0; /* Fully invisible */
+    margin-right: 0; /* No gap initially */
+    transform: translateX(-15px); /* Starts off-centered to the left */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gs-link-text {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+/* --- HOVER STATE --- */
+/* When hovering the link: The icon grows, fades in, and pushes the text */
+.footer-link:hover .gs-link-icon {
+    width: 18px; /* Expands to create space */
+    opacity: 1; /* Becomes visible */
+    margin-right: 8px; /* Adds the gap between icon and text */
+    transform: translateX(0); /* Slides into final position */
+}
+
+.footer-link:hover .gs-link-text {
+    color: #ffffff;
+    /* The text is naturally pushed by the icon's width change */
+}
+
+/* --- RESPONSIVE FIX --- */
+@media (max-width: 1024px) {
+    .footer-link {
+        justify-content: center;
+    }
+    /* Optional: Hide symbol on mobile for a cleaner centered look */
+    .gs-link-icon {
+        display: none;
+    }
+
+    .footer-link:hover .gs-link-text {
+        transform: scale(1.05);
+        color: #fff;
+    }
+}
+
+footer {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+
+    footer .flex.lg\:flex-row {
+        flex-direction: column;
+    }
+
+    footer .lg\:w-1\/4 {
+        width: 100%;
+    }
+
+    footer .bg-gray-900\/40 {
+        flex-direction: column;
+    }
+}
+
+@media (max-height: 700px) {
+
+    footer {
+        padding-top: 24px;
+        padding-bottom: 16px;
+    }
+
+    footer .pt-10 {
+        padding-top: 24px;
+    }
+
+    footer .pb-6 {
+        padding-bottom: 16px;
+    }
+
+    footer .space-y-4 > * + * {
+        margin-top: 8px;
+    }
+
+    footer .space-y-3 > * + * {
+        margin-top: 6px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    footer p {
+        font-size: 13px;
+    }
+
+    footer .footer-logo {
+        height: 48px;
+    }
+}
+
+/* Center footer left block content on tablet & smaller screens */
+@media (max-width: 1024px) {
+
+    footer .lg\:w-1\/4 {
+        align-items: center; /* centers logo, hashtag, button */
+        text-align: center; /* centers text */
+    }
+
+    footer .lg\:w-1\/4 p,
+    footer .lg\:w-1\/4 .gs-hashtag {
+        text-align: center;
+    }
+
+    footer .lg\:w-1\/4 .gs-map-btn {
+        align-self: center; /* centers the button */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    footer .gs-map-btn {
+        display: inline-flex !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        align-self: center !important;
+    }
+}
+
+
+/* --- STYLISH SQUARE SCROLL TOP BUTTON --- */
+.scroll-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    /* Dark Glassmorphism Effect */
+    background: rgba(22, 163, 74, 0.9); /* GSeven Green */
+    color: white;
+    /* Square with slight rounding for modern feel */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Smooth entrance */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) rotate(45deg); /* Starts rotated for a cool effect */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Entrance Animation */
+.scroll-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) rotate(0deg);
+}
+
+/* --- HOVER EFFECTS --- */
+.scroll-btn:hover {
+    background-color: #000; /* Turns black on hover */
+    border-color: #16a34a; /* Green border glow */
+    color: #16a34a; /* Arrow turns green */
+    box-shadow: 0 0 20px rgba(22, 163, 74, 0.6);
+    transform: translateY(-5px); /* Lift effect */
+}
+
+/* Making the arrow icon animate inside the box */
+.scroll-btn:hover i {
+    animation: arrowJump 0.6s infinite alternate;
+}
+
+@keyframes arrowJump {
+    from {
+        transform: translateY(2px);
+    }
+
+    to {
+        transform: translateY(-4px);
+    }
+}
+
