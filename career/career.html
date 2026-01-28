@@ -247,11 +247,17 @@
             const mail = "gseventechnologies@gmail.com";
             const sub = encodeURIComponent("Enquiry Regarding Opportunities");
 
-            // The standard way to open the default mail app
-            const mailtoUrl = `mailto:${mail}?subject=${sub}`;
+            // Check if the user is on a mobile device
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-            // On Mobile, this opens the App. On Desktop, it opens the default client.
-            window.location.href = mailtoUrl;
+            if (isMobile) {
+                // MOBILE: Open the native app (Gmail/Apple Mail)
+                window.location.href = `mailto:${mail}?subject=${sub}`;
+            } else {
+                // DESKTOP: Force open a Gmail tab to avoid Outlook/System prompts
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${mail}&su=${sub}`;
+                window.open(gmailUrl, '_blank');
+            }
         }
     </script>
 
