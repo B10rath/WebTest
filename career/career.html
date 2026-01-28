@@ -81,7 +81,7 @@
         </nav>
     </aside>
     
-    <section class="w-full bg-white mt-28 pt-24 pb-24 lg:mt-44 lg:pt-32 lg:pb-32 overflow-hidden gs-reveal-group gs-border-transition">
+    <section class="w-full bg-white mt-28 pt-24 pb-24 lg:mt-38 lg:pt-32 lg:pb-24 overflow-hidden gs-reveal-group gs-border-transition">
         <div class="max-w-6xl mx-auto px-6">
             <div class="max-w-3xl">
                 <h4 class="text-green-600 font-bold tracking-[0.3em] text-[10px] uppercase mb-4 gs-fade-up">
@@ -247,9 +247,11 @@
             const mail = "gseventechnologies@gmail.com";
             const sub = encodeURIComponent("Enquiry Regarding Opportunities");
 
-            // Opens a new Gmail compose window
-            const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${mail}&su=${sub}`;
-            window.open(url, '_blank');
+            // The standard way to open the default mail app
+            const mailtoUrl = `mailto:${mail}?subject=${sub}`;
+
+            // On Mobile, this opens the App. On Desktop, it opens the default client.
+            window.location.href = mailtoUrl;
         }
     </script>
 
