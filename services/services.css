@@ -567,3 +567,10 @@ body {
         align-items: center;
     }
 }
+
+@media (max-width: 768px) {
+    #menuBtn.gs-elite-hamburger {
+        padding-top: 30px !important; /* Pushes the 'icon' inside the button down */
+        height: auto !important; /* Ensures the button expands to show the shift */
+    }
+}

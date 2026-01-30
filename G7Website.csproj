@@ -75,6 +75,7 @@
     <Content Include="home.css" />
     <Content Include="home.html" />
     <Content Include="images\kaliweb.jpg" />
+    <Content Include="images\klsm.jpeg" />
     <Content Include="images\sdlc.png" />
     <Content Include="images\Ghero-mobile.jpg" />
     <Content Include="images\Ghero.jpeg" />
@@ -83,8 +84,10 @@
     <Content Include="images\kl47drone.jpg" />
     <Content Include="images\logo__1.png" />
     <Content Include="images\PortraitHeroImg.png" />
+    <Content Include="images\startupindia.png" />
     <Content Include="images\startuplogo.png" />
     <Content Include="index.html" />
+    <Content Include="output.css" />
     <Content Include="script.js" />
     <Content Include="services\services.css" />
     <Content Include="services\services.html" />

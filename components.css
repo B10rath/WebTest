@@ -539,34 +539,30 @@ footer {
     padding-bottom: 1.5rem; /* Reduced from 2rem (pb-8) */
 }
 
-/* --- LOGO SIZE --- */
+/* --- DEFAULT (Laptops & Monitors) --- */
 .footer-logo {
-    height: 70px; /* Balanced height for better vertical space */
+    height: 70px;
     width: auto;
     transition: transform 0.3s ease;
-    align-self: flex-start;
+    /* Desktop default: Left Aligned */
+    display: inline-block;
+    margin: 0;
 }
 
 .footer-logo:hover {
     transform: scale(1.05);
 }
 
-/* --- HASHTAG HOVER EFFECT --- */
-.gs-hashtag {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.4);
-    font-family: 'Courier New', Courier, monospace;
-    display: inline-block;
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
-
-.gs-hashtag:hover {
-    color: #facc15;
-    letter-spacing: 2.5px;
-    text-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+/* --- MOBILE & TABLET OVERRIDE --- */
+/* This targets everything smaller than a standard laptop */
+@media (max-width: 1024px) {
+    .footer-logo {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        /* Forced Move Up */
+        margin-top: -30px !important; /* Increased to -30px so you can definitely see the move */
+    }
 }
 
 /* --- MAP SHORTCUT BUTTON --- */
