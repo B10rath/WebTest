@@ -961,3 +961,120 @@ footer {
     }
 }
 
+.fixed-contact-bar {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* This ensures the trigger stays dead-center when closed */
+
+    width: 54px; /* Slightly wider for better icon breathing room */
+    height: 54px;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 0 27px 27px 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: none;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+    /* HOVER: Expanding the container */
+    .fixed-contact-bar:hover {
+        height: 200px; /* Adjusted to fit the menu nicely */
+    }
+
+/* Trigger Icon: Centered in the 54x54 square */
+.contact-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; /* Occupies full initial container */
+    color: #ffffff;
+    font-size: 20px;
+    position: absolute; /* Keeps it centered without affecting menu layout */
+    transition: opacity 0.3s ease;
+}
+
+.contact-trigger i {
+    transform: translateX(-2px); /* Moves the icon 2 pixels to the left */
+    display: inline-block; /* Required for transform to work on <i> tags */
+}
+
+.fixed-contact-bar:hover .contact-trigger {
+    opacity: 0;
+    pointer-events: none; /* User clicks the buttons, not the trigger */
+}
+
+/* The Menu: Using space-evenly for identical Top/Bottom gaps */
+.contact-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; /* This makes the top and bottom margins identical */
+    height: 100%; /* Takes over the container's height on hover */
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fixed-contact-bar:hover .contact-menu {
+    opacity: 1;
+}
+
+/* Buttons */
+.contact-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    color: #9ca3af;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Brand Colors */
+.contact-btn.whatsapp:hover {
+    background: #25D366;
+}
+
+.contact-btn.phone:hover {
+    background: #3b82f6;
+}
+
+.contact-btn.email:hover {
+    background: #ea4335;
+}
+
+/* ... Your existing contact bar styles ... */
+
+/* Force the bar to stay closed even if hovered */
+.fixed-contact-bar.is-closing {
+    height: 54px !important;
+    padding: 0 !important;
+}
+
+.fixed-contact-bar.is-closing .contact-menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.fixed-contact-bar.is-closing .contact-trigger {
+    opacity: 1 !important;
+}

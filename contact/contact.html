@@ -282,6 +282,25 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
+    <!--Contact Bar-->
+    <div class="fixed-contact-bar">
+        <div class="contact-trigger">
+            <i class="fas fa-comments"></i>
+        </div>
+
+        <div class="contact-menu">
+            <a href="tel:+919400111203" class="contact-btn phone" title="Call">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="javascript:void(0)" target="_blank" class="contact-btn email" id="smartEmailBtn" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://wa.me/919400111203?" target="_blank" class="contact-btn whatsapp" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
     <!--JAVASCRIPT-->
 
     <script src="../script.js" defer></script>
@@ -304,7 +323,7 @@
 
             const formData = new FormData(form);
 
-           
+
             const googleFormUrl = 'https://docs.google.com/forms/d/1s5I1Sh55uUXEmyoSgN0NQnb1vpI-vKsHLrbFjECQqFs/formResponse';
 
             // Use 'no-cors' mode because Google Forms doesn't return a standard CORS header

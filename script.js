@@ -166,6 +166,47 @@ function handleDrawerNavigation() {
 
 document.addEventListener("DOMContentLoaded", handleDrawerNavigation);
 
+/**
+ * Global Contact Bar Controller
+ * Manages device-specific email behavior and auto-closing logic
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const contactBar = document.querySelector('.fixed-contact-bar');
+    const contactButtons = document.querySelectorAll('.contact-btn');
+
+    if (contactBar && contactButtons.length > 0) {
+        contactButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+
+                // 1. SMART EMAIL LOGIC
+                // Check if this specific button is the email button
+                if (btn.id === 'smartEmailBtn' || btn.classList.contains('email')) {
+                    e.preventDefault(); // Stop the default mailto behavior
+
+                    const email = "gseventechnologies@gmail.com";
+                    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+                    if (isMobile) {
+                        // Open default mobile app
+                        window.location.href = `mailto:${email}`;
+                    } else {
+                        // Open Gmail in a new browser tab for desktop
+                        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank');
+                    }
+                }
+
+                // 2. AUTO-CLOSE LOGIC
+                // Force the bar to shrink immediately
+                contactBar.classList.add('is-closing');
+
+                // Reset the bar functionality once the mouse leaves
+                contactBar.addEventListener('mouseleave', () => {
+                    contactBar.classList.remove('is-closing');
+                }, { once: true });
+            });
+        });
+    }
+});
 
 /* ===============================
    INIT ALL AFTER DOM LOAD
