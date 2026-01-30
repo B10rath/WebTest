@@ -208,6 +208,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+const trigger = document.querySelector('.contact-trigger');
+
+trigger.addEventListener('click', (e) => {
+    // Check if we are on a touch device
+    if (window.matchMedia("(pointer: coarse)").matches) {
+        e.stopPropagation(); // Prevent immediate closing
+        contactBar.classList.toggle('mobile-active');
+    }
+});
+
 /* ===============================
    INIT ALL AFTER DOM LOAD
 ================================ */

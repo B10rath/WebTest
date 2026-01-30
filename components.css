@@ -1078,3 +1078,27 @@ footer {
 .fixed-contact-bar.is-closing .contact-trigger {
     opacity: 1 !important;
 }
+
+/* Only apply hover effects to devices with a mouse/pointer */
+@media (hover: hover) and (pointer: fine) {
+    .fixed-contact-bar:hover:not(.is-closing) {
+        height: 200px;
+    }
+
+        .fixed-contact-bar:hover:not(.is-closing) .contact-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fixed-contact-bar:hover:not(.is-closing) .contact-trigger {
+            opacity: 0;
+        }
+}
+
+/* For Mobile: Use a Click to Open approach instead */
+@media (pointer: coarse) {
+    .fixed-contact-bar.mobile-active {
+        height: 200px;
+    }
+    /* Add logic to show menu when .mobile-active is present */
+}
